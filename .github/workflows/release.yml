@@ -57,7 +57,7 @@ jobs:
           SHA256=${{ steps.sha256.outputs.SHA256 }}
           
           # Clone the Homebrew tap repository
-          git clone https://github.com/trtmn/homebrew-cli-phonetic-alphabet.git
+          git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/trtmn/homebrew-cli-phonetic-alphabet.git
           cd homebrew-cli-phonetic-alphabet
           
           # Update the formula
@@ -69,4 +69,4 @@ jobs:
           git config --global user.email "actions@github.com"
           git add cli-phonetic-alphabet.rb
           git commit -m "Update formula to v${VERSION}"
-          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/trtmn/homebrew-cli-phonetic-alphabet.git" 
+          git push 
