@@ -10,7 +10,7 @@ if [ -z "$VERSION" ]; then
   exit 1
 fi
 
-URL="https://github.com/yourusername/cli-phonetic-alphabet/archive/refs/tags/v${VERSION}.tar.gz"
+URL="https://github.com/trtmn/cli-phonetic-alphabet/archive/refs/tags/v${VERSION}.tar.gz"
 echo "Downloading ${URL}..."
 curl -L "${URL}" -o "cli-phonetic-alphabet-${VERSION}.tar.gz"
 
