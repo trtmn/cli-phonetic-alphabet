@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script helps prepare for a release by updating the version in pyproject.toml
+# It does NOT create the tag - you need to do that manually after running this script
 # Usage: ./scripts/prepare_release.sh <version>
 
 set -e  # Exit on error
@@ -42,8 +43,13 @@ fi
 
 echo "✅ Preparation for release v${VERSION} completed successfully!"
 echo ""
-echo "To complete the release, create and push a tag:"
+echo "IMPORTANT: You need to create and push a tag manually to trigger the release process:"
 echo "git tag -a v${VERSION} -m \"Release v${VERSION}\""
 echo "git push --tags"
 echo ""
-echo "The GitHub Actions workflow will handle the rest of the release process." 
+echo "After pushing the tag, the GitHub Actions workflow will automatically:"
+echo "1. Build the package"
+echo "2. Create a GitHub release with the built packages"
+echo "3. Generate the SHA256 hash for the new release"
+echo "4. Update the Homebrew formula with the correct SHA256 hash"
+echo "5. Update the Homebrew tap repository" 

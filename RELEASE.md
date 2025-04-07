@@ -11,7 +11,7 @@ This document outlines the process for publishing a new version of the CLI Phone
 
 ## Automated Release Process
 
-We've set up a GitHub Actions workflow that automates the entire release process. To use it:
+We've set up a GitHub Actions workflow that automates the release process when you push a tag. To use it:
 
 1. Make sure you're in the root directory of the project
 2. Update the version in pyproject.toml
@@ -30,12 +30,32 @@ git tag -a v0.1.2 -m "Release v0.1.2"
 git push --tags
 ```
 
-The GitHub Actions workflow will:
+When you push the tag, the GitHub Actions workflow will automatically:
 1. Build the package
 2. Create a GitHub release with the built packages
 3. Generate the SHA256 hash for the new release
 4. Update the Homebrew formula with the correct SHA256 hash
 5. Update the Homebrew tap repository
+
+## Using the Preparation Script
+
+To simplify the process, you can use the preparation script:
+
+```bash
+./scripts/prepare_release.sh 0.1.2
+```
+
+This script will:
+1. Update the version in pyproject.toml
+2. Commit and push the changes to GitHub
+3. Provide instructions for creating and pushing a tag
+
+After running the script, you'll need to create and push the tag manually:
+
+```bash
+git tag -a v0.1.2 -m "Release v0.1.2"
+git push --tags
+```
 
 ## Manual Release Process
 
