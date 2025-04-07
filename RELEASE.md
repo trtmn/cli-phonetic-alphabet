@@ -11,29 +11,31 @@ This document outlines the process for publishing a new version of the CLI Phone
 
 ## Automated Release Process
 
-We've created a script that automates the entire release process. To use it:
+We've set up a GitHub Actions workflow that automates the entire release process. To use it:
 
 1. Make sure you're in the root directory of the project
-2. Run the release script with the new version number:
-
-```bash
-./scripts/release.sh <version>
-```
-
-For example:
-
-```bash
-./scripts/release.sh 0.1.2
-```
-
-The script will:
-1. Update the version in pyproject.toml
-2. Update the version in the Homebrew formula
+2. Update the version in pyproject.toml
 3. Commit and push the changes to GitHub
 4. Create and push a new tag
-5. Generate the SHA256 hash for the new release
-6. Update the Homebrew formula with the correct SHA256 hash
-7. Update the Homebrew tap repository
+
+```bash
+# Update version in pyproject.toml (manually)
+# Then commit and push the changes
+git add pyproject.toml
+git commit -m "Bump version to 0.1.2"
+git push
+
+# Create and push a new tag
+git tag -a v0.1.2 -m "Release v0.1.2"
+git push --tags
+```
+
+The GitHub Actions workflow will:
+1. Build the package
+2. Create a GitHub release with the built packages
+3. Generate the SHA256 hash for the new release
+4. Update the Homebrew formula with the correct SHA256 hash
+5. Update the Homebrew tap repository
 
 ## Manual Release Process
 
