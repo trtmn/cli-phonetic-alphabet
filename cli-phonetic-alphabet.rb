@@ -9,10 +9,17 @@ class CliPhoneticAlphabet < Formula
   depends_on "python@3.11"
 
   def install
-    virtualenv_install_with_resources
+    # Create a virtual environment
+    venv = virtualenv_create(libexec, "python3.11")
     
-    # Explicitly install dependencies
-    system Formula["python@3.11"].opt_bin/"pip3", "install", "click>=8.0.0", "rich>=10.0.0"
+    # Install the package into the virtual environment
+    system Formula["python@3.11"].opt_bin/"pip3", "install", "--no-deps", "."
+    
+    # Install dependencies into the virtual environment
+    system Formula["python@3.11"].opt_bin/"pip3", "install", "--no-deps", "click>=8.0.0", "rich>=10.0.0"
+    
+    # Create the bin directory and symlink the executable
+    bin.install_symlink libexec/"bin/phonetic"
   end
 
   test do
