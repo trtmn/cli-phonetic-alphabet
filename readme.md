@@ -7,7 +7,7 @@ A command-line tool for converting text to NATO phonetic alphabet. Built with Cl
 ### With Homebrew (macOS)
 
 ```bash
-brew tap yourusername/cli-phonetic-alphabet
+brew tap trtmn/cli-phonetic-alphabet
 brew install cli-phonetic-alphabet
 ```
 
