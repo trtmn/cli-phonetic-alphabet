@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cli-phonetic-alphabet"
-version = "0.1.1"
+version = "0.1.2"
 description = "A CLI version of the NATO Phonetic alphabet"
 readme = "readme.md"
 requires-python = ">=3.11"
