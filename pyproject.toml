@@ -1,0 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cli-phonetic-alphabet"
+version = "0.1.0"
+description = "A CLI version of the NATO Phonetic alphabet"
+readme = "readme.md"
+requires-python = ">=3.8"
+dependencies = [
+    "click>=8.0.0",
+    "rich>=10.0.0",
+]
+
+[project.scripts]
+phonetic = "cli_phonetic_alphabet.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["cli_phonetic_alphabet"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/cli_phonetic_alphabet",
+] 
