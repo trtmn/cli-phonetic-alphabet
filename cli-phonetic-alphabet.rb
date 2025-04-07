@@ -4,7 +4,7 @@ class CliPhoneticAlphabet < Formula
   desc "A CLI version of the NATO Phonetic alphabet"
   homepage "https://github.com/trtmn/cli-phonetic-alphabet"
   url "https://github.com/trtmn/cli-phonetic-alphabet/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "9e5764d427e9e91847597458e4a3a85b177c8b45bba5d5b3946bd3feac31a2d1"
+  sha256 "6bd4e21e78dfe5ec9cebe2e690530acc12c22f5b86a62b8f934e8dd1f8bfe6ce"
 
   depends_on "python@3.11"
 
